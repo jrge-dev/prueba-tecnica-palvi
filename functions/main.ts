@@ -32,8 +32,6 @@ export async function getDaysByCategory(category: "A" | "B" | "C" | "D") {
 export async function getAnalyticsData() {
   const daysA = await getDaysByCategory("A");
 
-  // Aquí es donde en el futuro harás: .reduce(), .filter(), .sort()
-  // Por ahora, solo retornamos la data limpia.
   return daysA.map((day: any) => ({
     fecha: day.date,
     ...day,
@@ -56,14 +54,12 @@ interface DayEntry {
 export function groupByWeeks(data: DayEntry[]): DayEntry[][] {
   if (!data || data.length === 0) return [];
 
-  // Ordenamos por fecha por seguridad antes de agrupar
   const sortedData = [...data].sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
   );
 
   const weeks: DayEntry[][] = [];
 
-  // Recorremos el array saltando de 7 en 7
   for (let i = 0; i < sortedData.length; i += 7) {
     const week = sortedData.slice(i, i + 7);
     weeks.push(week);
