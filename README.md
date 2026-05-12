@@ -32,7 +32,7 @@ npm install
 npm run dev
 ```
 
-## Desiciones técnicas
+## Decisiones técnicas
 
 ### 1. Representación del Embudo de Ventas (Funnel)
 
@@ -56,14 +56,13 @@ Seleccioné Recharts por su excelente integración con React y su capacidad para
 
 Se identificó un error en el cálculo del backlog semanal: la existencia de ventas arrastradas de periodos previos al análisis generaba saldos negativos.
 
-- Solución: Se ajustará la función getWeeklyDealsAnalytics() para  normalizar el flujo histórico y asegurar que el backlog represente siempre una magnitud física real (mínimo 0).
+- Solución: Se ajustará la función getWeeklyDealsAnalytics() para normalizar el flujo histórico y asegurar que el backlog represente siempre una magnitud física real (mínimo 0).
 
 ### 2. Agregar métricas
 
 Quedaron fuera métricas importantes con las cuales se pueden sacar diferentes conocimientos. Así que sería importante estudiarlas bien y generar los cruces necesarios que den conocimiento.
 
 - Métricas:
-
   - Días entre apertura y cierre.
   - Deals abiertos sin novedades en 60 días.
-  
+
