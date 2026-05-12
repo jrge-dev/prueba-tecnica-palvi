@@ -36,7 +36,7 @@ export async function getAnalyticsData() {
   // Por ahora, solo retornamos la data limpia.
   return daysA.map((day: any) => ({
     fecha: day.date,
-    ...day, // Esparcimos el resto de la data anidada diaria
+    ...day,
   }));
 }
 /**
@@ -44,7 +44,7 @@ export async function getAnalyticsData() {
  */
 interface DayEntry {
   date: string;
-  metrics: Record<string, number>; // Diccionario de métricas (clave: nombre, valor: número)
+  metrics: Record<string, number>;
   [key: string]: any;
 }
 
