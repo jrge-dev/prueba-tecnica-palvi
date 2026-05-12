@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# Prueba técnica PALVI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Iniciar localmente
 
-Currently, two official plugins are available:
+- **Requisitos**
+  - Node (v24.13.x +)
+  - Npm (v11.8.x +)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1.1. Clonar Reposotorio
 
-## React Compiler
+**Por Https**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/jrge-dev/prueba-tecnica-palvi.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 1.2. Acceder al proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd prueba-tecnica-palvi
 ```
+
+### 1.3. Instalar dependencias
+
+```bash
+npm install
+```
+
+### 1.4. Iniciar modo desarrollo
+
+```bash
+npm run dev
+```
+
+## Desiciones técnicas
+
+### 1. Representación del Embudo de Ventas (Funnel)
+
+El objetivo principal fue identificar métricas clave que permitan al Jefe de Ventas tomar decisiones estratégicas de forma ágil. Se optó por un modelo de embudo para visualizar la conversión semanal, desde la captación de usuarios hasta la venta final, permitiendo identificar cuellos de botella en el proceso comercial.
+
+### 2. Análisis de Rendimiento Semanal
+
+Se implementó una visualización del flujo de "Deals" para monitorizar la capacidad de cierre, el volumen de ventas exitosas y el estado del backlog. Esto permite registrar la evolución histórica del equipo y su eficiencia operativa.
+
+### 3. Framework CSS (Tailwind)
+
+Dado el carácter de prueba técnica y la importancia de la velocidad de desarrollo, utilicé Tailwind CSS. Esto facilitó una estilización rápida, responsiva y consistente sin comprometer la escalabilidad del diseño.
+
+### 4. Visualización de Datos (Recharts)
+
+Seleccioné Recharts por su excelente integración con React y su capacidad para renderizar gráficos declarativos, visualmente atractivos y fáciles de interpretar para el usuario final.
+
+## Segunda Iteración
+
+### 1. Optimización de la Lógica Analítica
+
+Se identificó un error en el cálculo del backlog semanal: la existencia de ventas arrastradas de periodos previos al análisis generaba saldos negativos.
+
+- Solución: Se ajustará la función getWeeklyDealsAnalytics() para  normalizar el flujo histórico y asegurar que el backlog represente siempre una magnitud física real (mínimo 0).
+
+### 2. Agregar métricas
+
+Quedaron fuera métricas importantes con las cuales se pueden sacar diferentes conocimientos. Así que sería importante estudiarlas bien y generar los cruces necesarios que den conocimiento.
+
+- Métricas:
+
+  - Días entre apertura y cierre.
+  - Deals abiertos sin novedades en 60 días.
+  
