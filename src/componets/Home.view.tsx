@@ -1,7 +1,9 @@
+import MetricsView from "./Metrics.view";
+
 export default function HomeView() {
   return (
     <>
-      <h1>Hello</h1>
+      <MetricsView />
     </>
   );
 }
